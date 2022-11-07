@@ -40,29 +40,29 @@ def database():
 
     conn.commit()
     conn.close()
-
+def onclick(message):
+    label["text"] = message
+root = Tk()
 
 bestand = open('StationBericht.txt', 'a')
 modNaam = input('Naam: ')
 modMail = input('Email: ')
 keuze = 'start'
 reviewed = []
+root = Tk()
+label = Label(master=root, text=eersteLine, height=2)
+label.pack()
+buttonA = Button(master=root, text='Goedkeuren', command=partial(onclick, eersteLine))
+buttonA.pack()
+buttonB = Button(master=root, text='Afkeuren', command=partial(onclick, eersteLine))
+buttonB.pack(pady=10)
+root.mainloop()
 while keuze != 'stop':
     with open('StationBericht.txt') as f:
         eersteLine = f.readline()
     print(eersteLine)
     if eersteLine == str():
         break
-    def onclick(message):
-        label["text"] = message
-    root = Tk()
-    label = Label(master=root, text=eersteLine, height=2)
-    label.pack()
-    buttonA = Button(master=root, text='Goedkeuren', command=partial(onclick, eersteLine))
-    buttonA.pack()
-    buttonB = Button(master=root, text='Afkeuren', command=partial(onclick, eersteLine))
-    buttonB.pack(pady=10)
-    root.mainloop()
     keuze = input('Goedkeuring bericht: ')
     if keuze == 'ja':
         keuze = True
