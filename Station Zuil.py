@@ -3,7 +3,6 @@ from datetime import date
 import random
 from tkinter import *
 from functools import partial
-import json
 
 bestand = open("StationBericht.txt", "a")
 

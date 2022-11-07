@@ -2,10 +2,7 @@ from datetime import datetime
 from datetime import date
 import random
 from tkinter import *
-from functools import partial
-import linecache
 import psycopg2
-import json
 
 
 def invullen():
@@ -15,7 +12,7 @@ def invullen():
     Goedkeuring = '{}] {}] {}] {}] {}] {}'.format(datumMod, currentTimeMod, modNaam, modMail, keuze, eersteLine)
     reviewed.append(Goedkeuring.replace('\n', ' '))
 def database():
-    connection_string = "host='localhost' dbname='zuil' user='postgres' password='moumou12'"
+    connection_string = "host='localhost' dbname='zuil1' user='postgres' password='moumou12'"
 
     conn = psycopg2.connect(connection_string)
     cursor = conn.cursor()
@@ -40,23 +37,12 @@ def database():
 
     conn.commit()
     conn.close()
-def onclick(message):
-    label["text"] = message
-root = Tk()
 
-bestand = open('StationBericht.txt', 'a')
 modNaam = input('Naam: ')
 modMail = input('Email: ')
 keuze = 'start'
 reviewed = []
-root = Tk()
-label = Label(master=root, text=eersteLine, height=2)
-label.pack()
-buttonA = Button(master=root, text='Goedkeuren', command=partial(onclick, eersteLine))
-buttonA.pack()
-buttonB = Button(master=root, text='Afkeuren', command=partial(onclick, eersteLine))
-buttonB.pack(pady=10)
-root.mainloop()
+lijst = []
 while keuze != 'stop':
     with open('StationBericht.txt') as f:
         eersteLine = f.readline()
@@ -67,27 +53,28 @@ while keuze != 'stop':
     if keuze == 'ja':
         keuze = True
         invullen()
-        lijst = []
         for x in reviewed:
             lijst.extend(x.split('] '))
             print(lijst)
             database()
             lijst.clear()
+            reviewed.clear()
             print(lijst)
         with open('StationBericht.txt', 'r') as fin:
             data = fin.read().splitlines(True)
         with open('StationBericht.txt', 'w') as fout:
             fout.writelines(data[1:])
 
+
     elif keuze == 'nee':
         keuze = False
         invullen()
-        lijst = []
         for x in reviewed:
             lijst.extend(x.split('] '))
             print(lijst)
             database()
             lijst.clear()
+            reviewed.clear()
             print(lijst)
         with open('StationBericht.txt', 'r') as fin:
             data = fin.read().splitlines(True)
