@@ -28,12 +28,14 @@ def database():
     data = (lijst[3], lijst[2], lijst[1], lijst[0])
     cursor.execute(query, data)
 
+    #query voor station
     query3 = """INSERT INTO Station (stationScherm, faciliteit)
                                    VALUES (%s, %s)"""
 
     data3 = ('test', True)
     cursor.execute(query3, data3)
 
+    #query voor bericht
     query2 = """INSERT INTO Bericht (naam, bericht, tijd, datum, station, goedkeuring)
                            VALUES (%s, %s, %s, %s, %s, %s)"""
 
