@@ -6,7 +6,7 @@ import psycopg2
 
 #tkinter scherm
 ws = Tk()
-ws.geometry('400x300')
+ws.geometry('600x400')
 ws.title('NS Scherm')
 ws['bg'] = '#Dcd730'
 f = ("Times bold", 14)
@@ -22,7 +22,7 @@ query = "SELECT naam, bericht, datum, station, tijd FROM bericht WHERE goedkeuri
 
 cursor.execute(query)
 results = cursor.fetchall()
-
+#de query voor de faciliteiten
 query2 = "SELECT station_city, ov_bike, elevator, toilet, park_and_ride FROM station_service"
 
 cursor.execute(query2)
@@ -64,7 +64,7 @@ Label(
     font=f
 ).pack(expand=True, fill=BOTH)
 
-#tkinter label
+#tkinter label voor de weer
 Label(
     ws,
     text=(weatherJson, 'C.'),
@@ -74,6 +74,7 @@ Label(
     font=f
 ).pack(expand=True, fill=BOTH)
 
+#Hier worden de berichten en de namen verstuurd naar de Station scherm
 for row in results:
     variable = str(row[0]) + '\n' + str(row[1]) + ' ' + str(row[2]) + ' ' + str(row[3])
     print(variable)

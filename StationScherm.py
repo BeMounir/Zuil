@@ -6,7 +6,7 @@ from functools import partial
 
 #tkinter scherm
 ws = Tk()
-ws.geometry('400x300')
+ws.geometry('600x400')
 ws.title('NS Scherm')
 ws['bg'] = '#Dcd730'
 f = ("Times bold", 14)
@@ -45,6 +45,7 @@ Button(
     ws,
     text="Enter",
     font=f,
+    #dit command verwijst naar de funcite
     command=weer
 ).pack(fill=X, expand=TRUE, side=LEFT)
 ws.mainloop()
