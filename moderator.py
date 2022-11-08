@@ -70,11 +70,9 @@ while keuze != 'stop':
         #for loop waar hij de bericht in stukken hakt en in een string zet
         for x in reviewed:
             lijst.extend(x.split('] '))
-            print(lijst)
             database()
             lijst.clear()
             reviewed.clear()
-            print(lijst)
         #hier verwijdert hij het gebruikte line in het text document zodat het niet dubbel wordt gebruikt
         with open('StationBericht.txt', 'r') as fin:
             data = fin.read().splitlines(True)
@@ -87,11 +85,9 @@ while keuze != 'stop':
         invullen()
         for x in reviewed:
             lijst.extend(x.split('] '))
-            print(lijst)
             database()
             lijst.clear()
             reviewed.clear()
-            print(lijst)
         with open('StationBericht.txt', 'r') as fin:
             data = fin.read().splitlines(True)
         with open('StationBericht.txt', 'w') as fout:
