@@ -23,6 +23,7 @@ def weer():
     with open("package.json", "w") as outfile:
         json.dump(response.json(), outfile, indent=4)
     ws.destroy()
+
     import page2
 
 #dit allemaal is opmaak voor de tkinter scherm
