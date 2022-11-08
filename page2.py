@@ -53,7 +53,6 @@ for row in results2:
             parkAndRide = ' park and ride'
         else:
             parkAndRide = ''
-
 #tk opmaak voor de faciliteit
 Label(
     ws,
