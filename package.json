@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": 5.9,
+        "lat": 51.9667
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "bewolkt",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 15.17,
+        "feels_like": 14.54,
+        "temp_min": 14.39,
+        "temp_max": 16.2,
+        "pressure": 1004,
+        "humidity": 69
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 6.69,
+        "deg": 180
+    },
+    "clouds": {
+        "all": 100
+    },
+    "dt": 1667916125,
+    "sys": {
+        "type": 2,
+        "id": 2037908,
+        "country": "NL",
+        "sunrise": 1667889804,
+        "sunset": 1667923015
+    },
+    "timezone": 3600,
+    "id": 2759660,
+    "name": "Arnhem",
+    "cod": 200
+}
