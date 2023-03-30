@@ -16,7 +16,7 @@ def invullen():
 #functie voor het bericht sturen naar het database
 def database():
     #connectie naar mijn prosgres database
-    connection_string = "host='localhost' dbname='zuil1' user='postgres' password='moumou12'"
+    connection_string = "host='localhost' dbname='zuil1' user='postgres' password='*zet hier je wchtwoord*'"
 
     conn = psycopg2.connect(connection_string)
     cursor = conn.cursor()
